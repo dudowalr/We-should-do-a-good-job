@@ -370,13 +370,16 @@ class LogSearchService:
             "build_response_guide": lambda: self.build_response_guide(stats),
         }
 
-        input_items: List[Dict[str, Any]] = [
+        input_items = [
             {
                 "role": "system",
                 "content": (
-                    "너는 보안 로그 분석 보조 도구다. 반드시 필요한 함수들을 먼저 호출한 뒤, "
+                    "너는 보안 로그 분석 보조 도구다. "
+                    "반드시 필요한 함수들을 먼저 호출한 뒤, "
                     "유사 로그가 얼마나 있었는지와 그 패턴이 어떤 의미인지 한국어로 설명한다. "
-                    "과장하지 말고 사실과 추론을 구분한다."
+                    "과장하지 말고 사실과 추론을 구분한다. "
+                    "또한 가능한 경우 MITRE ATT&CK 관점에서 technique_id, technique_name, tactic을 제시하라. "
+                    "근거가 부족하면 확정하지 말고 후보라고 명시하라."
                 ),
             },
             {
@@ -385,6 +388,7 @@ class LogSearchService:
                     f"검색어: {keyword}\n"
                     "질문: 이 로그와 비슷한 사례가 얼마나 있었는지, 반복되는 특징이 무엇인지, "
                     "왜 이상 패턴으로 볼 수 있는지 설명해줘.\n"
+                    "가능하면 MITRE ATT&CK 기준으로도 해석해줘.\n"
                     f"참고 통계:\n{self._serialize_stats(stats)}"
                 ),
             },
@@ -396,7 +400,7 @@ class LogSearchService:
             tools=self.available_function_tools(),
         )
 
-        max_rounds = 6
+        max_rounds = 3
         for _ in range(max_rounds):
             tool_outputs: List[Dict[str, Any]] = []
 
@@ -501,7 +505,7 @@ class LogSearchService:
             file_ids=[uploaded_file.id],
         )
 
-        for _ in range(30):
+        for _ in range(15):
             current_batch = self.client.vector_stores.file_batches.retrieve(
                 vector_store_id=vector_store.id,
                 batch_id=batch.id,
@@ -572,7 +576,7 @@ class LogSearchService:
 
         combined = (
             "[유사 로그 요약 및 패턴 해석]\n"
-            + function_call_text.strip()
+          + function_call_text.strip()
             + "\n\n[유사 사례 AI 해석]\n"
             + file_search_text.strip()
         )
