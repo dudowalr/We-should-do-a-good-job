@@ -1,0 +1,14 @@
+{
+  "analysis_result": {
+    "predicted_label": "DoS-Hulk",
+    "predicted_class_label": "DoS",
+    "confidence_score": 0.97,
+    "is_attack": true,
+    "input_features": {
+      "flow_duration": 3700,
+      "init_fwd_win_bytes": 2048,
+      "packets_per_s": 520.8
+    }
+  },
+  "timestamp": "2026-03-27T11:08:00Z"
+}

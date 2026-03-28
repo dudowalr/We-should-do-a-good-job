@@ -1,0 +1,14 @@
+{
+  "analysis_result": {
+    "predicted_label": "DoS-Slowheaders",
+    "predicted_class_label": "DoS",
+    "confidence_score": 0.85,
+    "is_attack": true,
+    "input_features": {
+      "flow_duration": 10400,
+      "init_fwd_win_bytes": 640,
+      "packets_per_s": 2.4
+    }
+  },
+  "timestamp": "2026-03-27T11:06:00Z"
+}

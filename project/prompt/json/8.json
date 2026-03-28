@@ -1,0 +1,14 @@
+{
+  "analysis_result": {
+    "predicted_label": "DoS-Rudy",
+    "predicted_class_label": "DoS",
+    "confidence_score": 0.84,
+    "is_attack": true,
+    "input_features": {
+      "flow_duration": 9300,
+      "init_fwd_win_bytes": 700,
+      "packets_per_s": 3.2
+    }
+  },
+  "timestamp": "2026-03-27T11:07:00Z"
+}

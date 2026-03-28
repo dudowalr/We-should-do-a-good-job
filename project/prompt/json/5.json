@@ -1,0 +1,14 @@
+{
+  "analysis_result": {
+    "predicted_label": "DDoS-Ddossim",
+    "predicted_class_label": "DDoS",
+    "confidence_score": 0.96,
+    "is_attack": true,
+    "input_features": {
+      "flow_duration": 2600,
+      "init_fwd_win_bytes": 4096,
+      "packets_per_s": 480.5
+    }
+  },
+  "timestamp": "2026-03-27T11:04:00Z"
+}
