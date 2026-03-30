@@ -132,18 +132,18 @@ st.subheader("Input Features")
 col1, col2 = st.columns(2)
 
 with col1:
-    flow_duration = st.number_input("Flow Duration", value=None, step=1, placeholder="값을 입력 하세요")
-    total_fwd_packets = st.number_input("Total Fwd Packets", value=None, step=1, placeholder="값을 입력 하세요")
-    total_backward_packets = st.number_input("Total Backward Packets", value=None, step=1, placeholder="값을 입력 하세요")
-    fwd_packet_length_mean = st.number_input("Fwd Packet Length Mean", value=None, step=1, placeholder="값을 입력 하세요")
-    bwd_packet_length_mean = st.number_input("Bwd Packet Length Mean", value=None, step=1, placeholder="값을 입력 하세요")
+    flow_duration = st.number_input("Flow Duration", value=None, step=1.0, placeholder="값을 입력 하세요")
+    total_fwd_packets = st.number_input("Total Fwd Packets", value=None, step=1.0, placeholder="값을 입력 하세요")
+    total_backward_packets = st.number_input("Total Backward Packets", value=None, step=1.0, placeholder="값을 입력 하세요")
+    fwd_packet_length_mean = st.number_input("Fwd Packet Length Mean", value=None, step=1.0, placeholder="값을 입력 하세요")
+    bwd_packet_length_mean = st.number_input("Bwd Packet Length Mean", value=None, step=1.0, placeholder="값을 입력 하세요")
 
 with col2:
-    flow_bytes_s = st.number_input("Flow Bytes/s", value=None, step=1, placeholder="값을 입력 하세요")
-    flow_packets_s = st.number_input("Flow Packets/s", value=None, step=1, placeholder="값을 입력 하세요")
-    flow_iat_mean = st.number_input("Flow IAT Mean", value=None, step=1, placeholder="값을 입력 하세요")
-    packet_length_mean = st.number_input("Packet Length Mean", value=None, step=1, placeholder="값을 입력 하세요")
-    init_fwd_win_bytes = st.number_input("Init Fwd Win Bytes", value=None, step=1, placeholder="값을 입력 하세요")
+    flow_bytes_s = st.number_input("Flow Bytes/s", value=None, step=1.0, placeholder="값을 입력 하세요")
+    flow_packets_s = st.number_input("Flow Packets/s", value=None, step=1.0, placeholder="값을 입력 하세요")
+    flow_iat_mean = st.number_input("Flow IAT Mean", value=None, step=1.0, placeholder="값을 입력 하세요")
+    packet_length_mean = st.number_input("Packet Length Mean", value=None, step=1.0, placeholder="값을 입력 하세요")
+    init_fwd_win_bytes = st.number_input("Init Fwd Win Bytes", value=None, step=1.0, placeholder="값을 입력 하세요")
 
 if st.button("Submit"):
     if None in [
