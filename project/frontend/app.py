@@ -260,7 +260,24 @@ if st.session_state.chat_open:
                 st.rerun()
 
         if not st.session_state.analysis_context:
-            st.info("먼저 예측을 실행하면 분석 결과를 바탕으로 챗봇과 대화할 수 있습니다.")
+            st.markdown(
+                """
+                <div style="
+                    background-color: #f3f4f6;
+                    color: #111111;
+                    padding: 14px 16px;
+                    border-radius: 12px;
+                    border: 1px solid #d1d5db;
+                    line-height: 1.6;
+                    font-size: 14px;
+                    white-space: normal;
+                    word-break: keep-all;
+                ">
+                    먼저 예측을 실행하면 분석 결과를 바탕으로 챗봇과 대화할 수 있습니다.
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
         else:
             history_area = st.container(height=280)
 
@@ -316,6 +333,22 @@ if st.session_state.chat_open:
         box-shadow: 0 8px 24px rgba(0,0,0,0.18);
         padding: 10px;
         z-index: 999990;
+        """
+    chat_box.float(
+        float_css_helper(
+            width="420px",
+            bottom="95px",
+            right="20px",
+            transition=0
+        )
+        + """
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        padding: 14px;
+        z-index: 999990;
+        max-height: 600px;
+        overflow-y: auto;
         """
     )
     
