@@ -12,4 +12,9 @@ python-multipart
 plotly
 streamlit
 requests
+<<<<<<< HEAD
 openai
+=======
+openai
+streamlit-float
+>>>>>>> feat/backend-db-v2

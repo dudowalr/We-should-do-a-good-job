@@ -1,5 +1,5 @@
+from typing import Optional, Dict, Any, List
 from pydantic import BaseModel
-from typing import Optional, Dict, Any
 
 # Predict
 class PredictRequest(BaseModel):
@@ -12,7 +12,7 @@ class PredictResponse(BaseModel):
     confidence_score: Optional[float] = None
     risk_level: Optional[str] = None
     anomaly_summary: Optional[str] = None
-    kill_chain_stage: Optional[str] = None
+    # kill_chain_stage: Optional[str] = None
     defense_mechanism: Optional[str] = None
     llm_recommendation: Optional[str] = None
 
@@ -50,3 +50,19 @@ class CsvAnalysisResponse(BaseModel):
     matched_rows_count: Optional[int] = None
     summary_text: Optional[str] = None
     openai_analysis: Optional[str] = None
+
+
+# chat
+class ChatMessage(BaseModel):
+    role: str
+    content: str
+
+
+class ChatRequest(BaseModel):
+    analysis_context: str
+    chat_history: List[ChatMessage]
+    question: str
+
+
+class ChatResponse(BaseModel):
+    answer: str

@@ -58,6 +58,7 @@ class LogSearchService:
     def __init__(self, log_dir: str = LOG_DIR, output_dir: str = OUTPUT_DIR, api_key: Optional[str] = None):
         self.log_dir = log_dir
         self.output_dir = output_dir
+        os.makedirs(self.log_dir, exist_ok=True)
         os.makedirs(self.output_dir, exist_ok=True)
 
         key = (api_key or os.getenv("OPENAI_API_KEY") or "").strip()
@@ -84,6 +85,41 @@ class LogSearchService:
 
         return df.rename(columns=rename_map) if rename_map else df
 
+    def save_uploaded_csv_files(self, uploaded_files) -> Dict[str, Any]:
+        saved_files: List[str] = []
+        skipped_files: List[str] = []
+        failed_files: List[Dict[str, str]] = []
+
+        os.makedirs(self.log_dir, exist_ok=True)
+
+        for uploaded_file in uploaded_files:
+            filename = os.path.basename(uploaded_file.name)
+
+            if not filename.lower().endswith(".csv"):
+                skipped_files.append(filename)
+                continue
+
+            save_path = os.path.join(self.log_dir, filename)
+
+            try:
+                with open(save_path, "wb") as f:
+                    f.write(uploaded_file.getbuffer())
+                saved_files.append(filename)
+            except Exception as exc:
+                failed_files.append({
+                    "file": filename,
+                    "error": str(exc)
+                })
+
+        return {
+            "saved_files": saved_files,
+            "skipped_files": skipped_files,
+            "failed_files": failed_files,
+            "saved_count": len(saved_files),
+            "skipped_count": len(skipped_files),
+            "failed_count": len(failed_files),
+        }
+    
     def load_all_logs(self) -> Tuple[pd.DataFrame, List[str], List[str]]:
         csv_files = sorted(glob.glob(os.path.join(self.log_dir, "*.csv")))
         if not csv_files:

@@ -158,3 +158,25 @@ else:
                     st.caption(f"분석 TXT: {st.session_state.ai_result['txt_path']}")
                     st.caption(f"업로드된 파일 ID: {st.session_state.ai_result['uploaded_file_id']}")
                     st.caption(f"Vector Store ID: {st.session_state.ai_result['vector_store_id']}")
+
+
+uploaded_files = st.file_uploader(
+    "CSV 파일 업로드",
+    type=["csv"],
+    accept_multiple_files=True
+)
+
+if uploaded_files and st.button("업로드 저장"):
+    result = service.save_uploaded_csv_files(uploaded_files)
+
+    if result["saved_files"]:
+        st.success(f"{result['saved_count']}개 저장 완료: {', '.join(result['saved_files'])}")
+
+    if result["skipped_files"]:
+        st.warning(f"CSV가 아닌 파일 제외: {', '.join(result['skipped_files'])}")
+
+    if result["failed_files"]:
+        for item in result["failed_files"]:
+            st.error(f"{item['file']} 저장 실패: {item['error']}")
+
+    st.rerun()

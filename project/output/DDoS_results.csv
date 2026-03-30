@@ -1,0 +1,5 @@
+﻿timestamp,attack_type,risk_level,flow_packets_s,flow_bytes_s,init_fwd_win_bytes,note,source_file
+2026-03-20 09:12:00,DDoS,High,1800,250000,900,HTTP 요청 급증,incident_sample.csv
+2026-03-21 16:48:00,DDoS,Critical,2100,310000,700,외부망 패킷 폭주,incident_sample.csv
+2026-03-23 08:55:00,DDoS,Critical,2500,330000,650,대량 요청 반복,incident_sample.csv
+2026-03-24 17:25:00,DDoS,High,1750,240000,920,의심 요청 다수,incident_sample.csv
