@@ -322,20 +322,6 @@ if st.session_state.chat_open:
 
     chat_box.float(
         float_css_helper(
-            width="380px",
-            bottom="95px",
-            right="20px",
-            transition=0
-        )
-        + """
-        background-color: white;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-        padding: 10px;
-        z-index: 999990;
-        """
-    chat_box.float(
-        float_css_helper(
             width="420px",
             bottom="95px",
             right="20px",
@@ -350,7 +336,7 @@ if st.session_state.chat_open:
         max-height: 600px;
         overflow-y: auto;
         """
-    )
+)
     
 # ----------------------------
 # Prediction Result
