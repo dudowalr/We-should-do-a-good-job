@@ -279,7 +279,7 @@ if st.session_state.chat_open:
                 unsafe_allow_html=True
             )
         else:
-            history_area = st.container(height=280)
+            history_area = st.container(height=500)
 
             with history_area:
                 for msg in st.session_state.chat_history:
@@ -322,7 +322,7 @@ if st.session_state.chat_open:
 
     chat_box.float(
         float_css_helper(
-            width="420px",
+            width="500px",
             bottom="95px",
             right="20px",
             transition=0
@@ -333,10 +333,10 @@ if st.session_state.chat_open:
         box-shadow: 0 8px 24px rgba(0,0,0,0.18);
         padding: 14px;
         z-index: 999990;
-        max-height: 600px;
+        max-height: 900px;
         overflow-y: auto;
         """
-)
+    )
     
 # ----------------------------
 # Prediction Result
