@@ -249,7 +249,10 @@ if st.session_state.chat_open:
         top_left, top_right = st.columns([6, 1])
 
         with top_left:
-            st.markdown("### Chatbot")
+            st.markdown(
+                '<h3 style="margin:0; color:#111111;">Chatbot</h3>',
+                unsafe_allow_html=True
+            )
 
         with top_right:
             if st.button("✖", key="close_chat_popup"):
