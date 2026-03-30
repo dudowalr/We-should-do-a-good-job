@@ -1,10 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-<<<<<<< HEAD
-from app.routers import predict, feedback, csv_analysis
-=======
 from app.routers import predict, feedback, csv_analysis, chat
->>>>>>> feat/backend-db-v2
 
 
 app = FastAPI(title="Cyber Threat Prediction API")
