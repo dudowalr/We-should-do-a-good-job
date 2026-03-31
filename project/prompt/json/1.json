@@ -1,0 +1,14 @@
+{
+  "analysis_result": {
+    "predicted_label": "Bruteforce-FTP",
+    "predicted_class_label": "Bruteforce",
+    "confidence_score": 0.91,
+    "is_attack": true,
+    "input_features": {
+      "flow_duration": 4200,
+      "init_fwd_win_bytes": 1024,
+      "packets_per_s": 18.7
+    }
+  },
+  "timestamp": "2026-03-27T11:00:00Z"
+}

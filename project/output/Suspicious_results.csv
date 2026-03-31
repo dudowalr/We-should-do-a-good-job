@@ -1,0 +1,4 @@
+﻿timestamp,attack_type,risk_level,flow_packets_s,flow_bytes_s,init_fwd_win_bytes,note,source_file
+2026-03-21 10:05:00,Suspicious,Medium,950,120000,850,비정상 세션 의심,incident_sample.csv
+2026-03-22 18:02:00,Suspicious,High,1300,210000,780,비정상 연결 증가,incident_sample.csv
+2026-03-24 09:40:00,Suspicious,Medium,870,98000,990,일시적 트래픽 이상,incident_sample.csv

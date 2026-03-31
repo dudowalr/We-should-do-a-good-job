@@ -1,0 +1,14 @@
+{
+  "analysis_result": {
+    "predicted_label": "Bruteforce-SSH",
+    "predicted_class_label": "Bruteforce",
+    "confidence_score": 0.94,
+    "is_attack": true,
+    "input_features": {
+      "flow_duration": 5100,
+      "init_fwd_win_bytes": 2048,
+      "packets_per_s": 22.3
+    }
+  },
+  "timestamp": "2026-03-27T11:01:00Z"
+}

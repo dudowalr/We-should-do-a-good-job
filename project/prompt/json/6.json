@@ -1,0 +1,14 @@
+{
+  "analysis_result": {
+    "predicted_label": "DoS-Goldeneye",
+    "predicted_class_label": "DoS",
+    "confidence_score": 0.89,
+    "is_attack": true,
+    "input_features": {
+      "flow_duration": 6400,
+      "init_fwd_win_bytes": 1024,
+      "packets_per_s": 145.2
+    }
+  },
+  "timestamp": "2026-03-27T11:05:00Z"
+}

@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+sqlalchemy
+pymysql
+python-dotenv
+pydantic
+joblib
+pandas
+numpy
+scikit-learn
+python-multipart
+plotly
+streamlit
+requests
+openai
+streamlit-float
+
